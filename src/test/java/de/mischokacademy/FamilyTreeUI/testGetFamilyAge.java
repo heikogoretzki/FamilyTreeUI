@@ -21,7 +21,7 @@ public class testGetFamilyAge {
 
         genOneSon.setMother(genTwoMother);
 
-        assertEquals(30 + 50, genOneSon.getFamilyAge());
+        assertEquals(30 + 51, genOneSon.getFamilyAge());
     }
 
     @Test
