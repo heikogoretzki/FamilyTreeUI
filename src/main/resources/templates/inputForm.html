@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Family Tree</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #272b30;
+            color: #717a73;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        input, select, textarea {
+            background-color: #272b30;
+            color: white;
+            font-family: 'Nunito', sans-serif;
+
+            width: 200px;
+            margin-top: 10px;
+
+            -ms-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+        }
+
+        .div-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .div-input {
+            margin: 50px;
+            padding: 20px;
+            width: 320px;
+            border: solid;
+        }
+
+        .div-inside {
+
+        }
+
+        #mother {
+            padding: 10px;
+        }
+
+        #father {
+            padding: 10px;
+        }
+
+        .label_ {
+            display: inline-block;
+            width: 100px;
+        }
+
+        button {
+            border-radius: 5px;
+            background-color: #717a73;
+            color: #272b30;
+            font-family: 'Nunito', sans-serif;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #272b30;
+            color: #717a73;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="div-container" id="div-con">
+
+    <form method="post" action="/" th:object="${saveInputForm}">
+        <div class="div-input">
+
+            <div class="div-inside" id="div-first">
+                <span class="label_">Firstname:</span>
+                <label for="firstName"></label>
+                <input id="firstName" type="text" placeholder="Firstname" th:field="*{firstName}" autocomplete="off" autofocus>
+            </div>
+
+            <div class="div-inside" id="div-last">
+                <span class="label_">Lastname:</span>
+                <label for="lastName"></label>
+                <input id="lastName" type="text" placeholder="Lastname" th:field="*{lastName}" autocomplete="off">
+            </div>
+
+            <div class="div-inside" id="div-age">
+                <span class="label_">Age:</span>
+                <label for="age"></label>
+                <input id="age" type="number" placeholder="Age (eg. 18)" th:field="*{age}" autocomplete="off">
+            </div>
+
+            <div class="div-inside" id="div-sel-mo">
+                <span class="label_">Mother:</span>
+                <select th:field="*{mother}">
+                    <option id="mother" th:each="human : ${humanList}"
+                                        th:text="${human.firstName + ' ' + human.lastName}"
+                                        th:value="${humanList.indexOf(human)}"></option>
+                </select>
+            </div>
+
+<!--            <div class="div-inside" id="div-sel-fa">-->
+<!--                <span class="label_">Father:</span>-->
+<!--                <select th:field="*{father}">-->
+<!--                    <option id="father">Who is your father?</option>-->
+<!--                </select>-->
+<!--            </div>-->
+
+            <button type="submit" id="submit">Save Form</button>
+
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

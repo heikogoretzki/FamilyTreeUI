@@ -95,4 +95,15 @@ public class Human {
     public void setFather(Human father) {
         this.father = father;
     }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", mother=" + mother +
+                ", father=" + father +
+                '}';
+    }
 }
