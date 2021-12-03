@@ -1,11 +1,16 @@
-package de.mischokacademy.FamilyTreeUI.Domain;
+package de.mischokacademy.FamilyTreeUI.Domain.Beans;
+
+import javax.validation.constraints.NotBlank;
 
 public class HumanBean {
+    @NotBlank
     private String firstName;
+
+    @NotBlank
     private String lastName;
     private int age;
-    private Human mother;
-    private Human father;
+    private Integer mother;
+    private Integer father;
 
     public String getFirstName() {
         return firstName;
@@ -31,19 +36,19 @@ public class HumanBean {
         this.age = age;
     }
 
-    public Human getMother() {
+    public Integer getMother() {
         return mother;
     }
 
-    public void setMother(Human mother) {
+    public void setMother(Integer mother) {
         this.mother = mother;
     }
 
-    public Human getFather() {
+    public Integer getFather() {
         return father;
     }
 
-    public void setFather(Human father) {
+    public void setFather(Integer father) {
         this.father = father;
     }
 

@@ -21,6 +21,7 @@
             font-family: 'Nunito', sans-serif;
 
             width: 200px;
+            height: 20px;
             margin-top: 10px;
 
             -ms-box-sizing: content-box;
@@ -77,19 +78,21 @@
 
 <div class="div-container" id="div-con">
 
-    <form method="post" action="/" th:object="${saveInputForm}">
+    <form method="post" action="/" th:object="${humanBeanForm}">
         <div class="div-input">
 
             <div class="div-inside" id="div-first">
                 <span class="label_">Firstname:</span>
                 <label for="firstName"></label>
                 <input id="firstName" type="text" placeholder="Firstname" th:field="*{firstName}" autocomplete="off" autofocus>
+                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Firstname is missing!</span>
             </div>
 
             <div class="div-inside" id="div-last">
                 <span class="label_">Lastname:</span>
                 <label for="lastName"></label>
                 <input id="lastName" type="text" placeholder="Lastname" th:field="*{lastName}" autocomplete="off">
+                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Lastname is missing!</span>
             </div>
 
             <div class="div-inside" id="div-age">
@@ -101,18 +104,22 @@
             <div class="div-inside" id="div-sel-mo">
                 <span class="label_">Mother:</span>
                 <select th:field="*{mother}">
+                    <option value=""></option>
                     <option id="mother" th:each="human : ${humanList}"
-                                        th:text="${human.firstName + ' ' + human.lastName}"
+                                        th:text="${human.getFirstName + ' ' + human.getLastName}"
                                         th:value="${humanList.indexOf(human)}"></option>
                 </select>
             </div>
 
-<!--            <div class="div-inside" id="div-sel-fa">-->
-<!--                <span class="label_">Father:</span>-->
-<!--                <select th:field="*{father}">-->
-<!--                    <option id="father">Who is your father?</option>-->
-<!--                </select>-->
-<!--            </div>-->
+            <div class="div-inside" id="div-sel-fa">
+                <span class="label_">Father:</span>
+                <select th:field="*{father}">
+                    <option value=""></option>
+                    <option id="father" th:each="human : ${humanList}"
+                                        th:text="${human.getFirstName + ' ' + human.getLastName}"
+                                        th:value="${humanList.indexOf(human)}"></option>
+                </select>
+            </div>
 
             <button type="submit" id="submit">Save Form</button>
 
