@@ -103,9 +103,10 @@
 
             <div class="div-inside" id="div-sel-mo">
                 <span class="label_">Mother:</span>
-                <select th:field="*{mother}">
+                <label for="mother"></label>
+                <select id="mother" th:field="*{mother}">
                     <option value=""></option>
-                    <option id="mother" th:each="human : ${humanList}"
+                    <option id="_mother" th:each="human : ${humanList}"
                                         th:text="${human.getFirstName + ' ' + human.getLastName}"
                                         th:value="${humanList.indexOf(human)}"></option>
                 </select>
@@ -113,9 +114,10 @@
 
             <div class="div-inside" id="div-sel-fa">
                 <span class="label_">Father:</span>
-                <select th:field="*{father}">
+                <label for="father"></label>
+                <select id="father" th:field="*{father}">
                     <option value=""></option>
-                    <option id="father" th:each="human : ${humanList}"
+                    <option id="_father" th:each="human : ${humanList}"
                                         th:text="${human.getFirstName + ' ' + human.getLastName}"
                                         th:value="${humanList.indexOf(human)}"></option>
                 </select>

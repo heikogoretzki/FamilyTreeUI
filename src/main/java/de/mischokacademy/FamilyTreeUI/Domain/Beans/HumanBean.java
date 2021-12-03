@@ -16,6 +16,7 @@ public class HumanBean {
         return firstName;
     }
 
+    @SuppressWarnings("unused")
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -24,6 +25,7 @@ public class HumanBean {
         return lastName;
     }
 
+    @SuppressWarnings("unused")
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -32,6 +34,7 @@ public class HumanBean {
         return age;
     }
 
+    @SuppressWarnings("unused")
     public void setAge(int age) {
         this.age = age;
     }
@@ -40,6 +43,7 @@ public class HumanBean {
         return mother;
     }
 
+    @SuppressWarnings("unused")
     public void setMother(Integer mother) {
         this.mother = mother;
     }
@@ -48,6 +52,7 @@ public class HumanBean {
         return father;
     }
 
+    @SuppressWarnings("unused")
     public void setFather(Integer father) {
         this.father = father;
     }

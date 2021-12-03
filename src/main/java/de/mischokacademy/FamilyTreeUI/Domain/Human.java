@@ -56,6 +56,7 @@ public class Human {
         }
     }
 
+    @SuppressWarnings("unused")
     public String getFirstName() {
         return firstName;
     }
@@ -64,6 +65,7 @@ public class Human {
         this.firstName = firstName;
     }
 
+    @SuppressWarnings("unused")
     public String getLastName() {
         return lastName;
     }
